@@ -1,4 +1,4 @@
-@extends('layout.layout')
+{{-- @extends('layout.layout')
 @section('title', 'Login')
 @section('content')
 <form action="/login" method="post">
@@ -16,4 +16,49 @@
     @enderror
     <button type="submit" class="btn btn-primary">Login</button>
 </form>
-@endsection
+@endsection --}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{URL('css/login.css')}}">
+    <!-- <link rel="stylesheet" href="login.css"> -->
+    <title>Document</title>
+</head>
+<style>
+
+</style>
+<body>
+    <form action="/login" method="post">
+        @csrf
+    <div class="box">
+        <div class="form">  
+        <h2>Login</h2>
+        <div class="inputBox">
+            <input type="text" name="email" required="required" id="email" >
+            <span>User name</span>
+            <i></i>
+        </div>
+        <div class="inputBox">
+            <input type="password" name="password" required="required" id="password">
+            <span>Password</span>
+            <i></i> 
+        </div>
+        <div class="links">
+            <a href="">Forgot password</a>
+            <a href="/register">Sign up</a>
+        </div>
+        <div class="input-field">
+            <input type="submit" class="submit" value="Login" id="">
+        </div>
+        {{-- <input type="submit" value="Login"> --}}
+        @error('message')
+        <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+    </div>
+</form>
+</body>
